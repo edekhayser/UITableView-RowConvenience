@@ -11,12 +11,12 @@
 @implementation UITableView (RowConvenience)
 
 - (NSIndexPath *)indexPathForAbsoluteRowNumber: (NSUInteger) rowNumber{
-	NSIndexPath *newPath;
+	NSIndexPath *newPath = nil;
 	int currentRow = 0;
 	for (int section = 0; section < [self numberOfSections]; section++) {
 		for (int row = 0; row < [self numberOfRowsInSection:section]; row++) {
 			if (currentRow == rowNumber) {
-				newPath = [NSIndexPath indexPathForRow:row inSection:section];
+				return [NSIndexPath indexPathForRow: row inSection: section];
 			}
 			
 			currentRow++;
